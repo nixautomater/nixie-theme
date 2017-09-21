@@ -1,3 +1,7 @@
 .topic-statuses .topic-status i.fa-check-square-o {
 	color: $success;
 }
+
+#topic-footer-buttons .topic-notifications-button {
+	display: none;
+}
