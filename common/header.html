@@ -39,3 +39,44 @@
   <div>{{i18n "groups.empty.members"}}</div>
 {{/if}}
 </script>
+<script type="text/discourse-plugin" version="0.8">
+var h = require('virtual-dom').h;
+  
+api.reopenWidget("hamburger-menu", {
+
+  adminLinks() {
+    const { currentUser } = this;
+
+    const links = [];
+
+    if (currentUser.admin) {
+      links.push({ route: 'admin', className: 'admin-link', icon: 'wrench', label: 'admin_title' });
+      links.push({ href: '/admin/flags/active',
+                   className: 'flagged-posts-link',
+                   icon: 'flag',
+                   label: 'flags_title',
+                   badgeClass: 'flagged-posts',
+                   badgeTitle: 'notifications.total_flagged',
+                   badgeCount: 'site_flagged_posts_count' });
+    }
+
+    if (currentUser.show_queued_posts) {
+      links.push({ route: 'queued-posts',
+                   className: 'queued-posts-link',
+                   label: 'queue.title',
+                   badgeCount: 'post_queue_new_count',
+                   badgeClass: 'queued-posts' });
+    }
+
+    if (currentUser.admin) {
+      links.push({ href: '/admin/site_settings/category/required',
+                   icon: 'gear',
+                   label: 'admin.site_settings.title',
+                   className: 'settings-link' });
+    }
+
+    return links.map(l => this.attach('link', l));
+  }
+
+});
+</script>
