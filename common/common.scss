@@ -5,3 +5,8 @@
 #topic-footer-buttons .topic-notifications-button, #share-link .reply-as-new-topic {
 	display: none;
 }
+
+nav.post-controls button.reply, nav.post-controls button.reply.d-hover {
+	background: $success !important;
+	color: $secondary !important;
+}
