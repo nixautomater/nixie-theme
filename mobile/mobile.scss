@@ -5,3 +5,7 @@
 nav.post-controls .reply .d-icon {
  margin-right: 8px;
 }
+
+.post-menu-area .post-controls button.reply:after {
+	content: 'Reply';
+}
