@@ -2,7 +2,15 @@
 	color: $success;
 }
 
-#topic-footer-buttons .topic-notifications-button, #share-link .reply-as-new-topic {
+#topic-footer-buttons {
+
+	.topic-notifications-button, .flag-topic, .invite-topic, .create {
+		display: none;
+	}
+
+}
+
+#share-link .reply-as-new-topic {
 	display: none;
 }
 
